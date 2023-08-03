@@ -21,7 +21,9 @@ function deepClone(obj) {
 
 // 创建的每个 store 中都会添加一个名为 `secret` 的属性。
 // 在安装此插件后，插件可以保存在不同的文件中
-export function myPiniaPlugin1() {
+export function myPiniaPlugin1({options}) {
+  // console.log("传递给插件的选项信息:",options);
+
   //给所有的store添加了一个全局属性
   return { secret: "use plugin successfully" };
 }

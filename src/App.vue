@@ -4,6 +4,7 @@
     <div class="linkContainer">
       <router-link to="/counter">计数器</router-link>
       <router-link to="/todolist">待办事项</router-link>
+      <router-link to="/cart">购物车</router-link>
     </div>
     <router-view></router-view>
   </div>

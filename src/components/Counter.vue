@@ -69,17 +69,25 @@
 
 <script setup>
 import { useCounterStore } from "@/store/useCounterStore.js";
-import { storeToRefs } from "pinia";
+import { storeToRefs, MutationType } from "pinia";
 import { ref } from "vue";
 const store = useCounterStore(); //拿到此仓库
 // console.log("Counter",store.secret);
 // console.log("Counter",store.test);
 // console.log("Counter",store.name);
 
+store.$subscribe((mutation, state) => {
+  console.log(mutation.type);
+  console.log(mutation.storeId);
+  console.log(mutation.payload);
+
+  // 每当状态发生变化时，将整个 state 持久化到本地存储。
+  console.log("state:",state);
+});
 
 const { increment, decrement, asyncIncrement, asyncDecrement } = store;
-const { num, doubleCount } = storeToRefs(store);  //拿到仓库中具有响应式的数据
-const numInput = ref(""); 
+const { num, doubleCount } = storeToRefs(store); //拿到仓库中具有响应式的数据
+const numInput = ref("");
 
 const setHandle = function () {
   store.$patch({

@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from "vue-router";
 // 引入组件
 import Counter from "@/components/Counter.vue";
 import ToDoList from "@/components/ToDoList.vue";
+import ShoppingCart from '@/components/ShoppingCart.vue'
 
 // 配置路由
 const routes = [
@@ -17,6 +18,10 @@ const routes = [
       {
         path: "todolist",
         component: ToDoList,
+      },
+      {
+        path: "cart",
+        component: ShoppingCart,
       },
     ],
   },
