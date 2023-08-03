@@ -11,6 +11,13 @@
       <p class="numInput">其他仓库的Getter数据：{{ otherCounter }}</p>
     </div>
 
+    <!-- 重置待办事项 -->
+    <div class="input-container">
+      <button
+        class="ctm"
+        @click="store.reset"
+      >重置待办事项</button>
+    </div>
 
     <!-- 添加新的待办事项 -->
     <div class="input-container">
@@ -53,12 +60,17 @@ import { useListStore } from "@/store/useListStore.js";
 import { storeToRefs } from "pinia";
 import { ref } from "vue";
 const store = useListStore();
+// console.log("List",store.secret);
+// console.log("List",store.test);
+// console.log("List",store.name);
+
 // const {list} = store
 // console.log(list);
-const { list,doubleCounter,otherCounter } = storeToRefs(store); //从仓库中解构响应式数据
-const { addItem, completeHandle, deleteHandle } = store; // 从仓库中解构方法
 
+const { list, doubleCounter, otherCounter } = storeToRefs(store); //从仓库中解构响应式数据
+const { addItem, completeHandle, deleteHandle } = store; // 从仓库中解构方法
 const newItem = ref(""); //与输入框做双向绑定
+
 //添加新的待办事项
 function addHandle() {
   if (newItem.value) {
@@ -120,5 +132,9 @@ function addHandle() {
 
 .del {
   text-decoration: line-through;
+}
+
+.ctm {
+  margin-bottom: 15px;
 }
 </style>

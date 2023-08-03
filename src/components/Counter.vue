@@ -72,10 +72,14 @@ import { useCounterStore } from "@/store/useCounterStore.js";
 import { storeToRefs } from "pinia";
 import { ref } from "vue";
 const store = useCounterStore(); //拿到此仓库
+// console.log("Counter",store.secret);
+// console.log("Counter",store.test);
+// console.log("Counter",store.name);
+
+
 const { increment, decrement, asyncIncrement, asyncDecrement } = store;
-//拿到仓库中具有响应式的数据
-const { num, doubleCount } = storeToRefs(store);
-const numInput = ref("");
+const { num, doubleCount } = storeToRefs(store);  //拿到仓库中具有响应式的数据
+const numInput = ref(""); 
 
 const setHandle = function () {
   store.$patch({
